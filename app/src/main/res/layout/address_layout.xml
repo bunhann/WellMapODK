@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/BNormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:layout_weight="0.18"
+                android:paddingLeft="15dp"
+                android:text="@string/lblProvince"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/address_province"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:prompt="@string/lblProvince"></Spinner>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BNormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:layout_weight="0.18"
+                android:paddingLeft="15dp"
+                android:text="@string/lblDistrict"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/address_district"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:prompt="@string/lblDistrict"></Spinner>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BNormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:layout_weight="0.18"
+                android:paddingLeft="15dp"
+                android:text="@string/lblCommune"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/address_commune"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:prompt="@string/lblCommune"></Spinner>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BNormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5pt"
+                android:layout_weight="0.18"
+                android:paddingLeft="15dp"
+                android:text="@string/lblVillage"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/address_village"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:prompt="@string/lblVillage"></Spinner>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

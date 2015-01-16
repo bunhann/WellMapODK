@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+   <solid android:color="#ffffff" />
+   <stroke android:width="1dip" android:color="#CCCCCC"/>
+</shape><!-- From: file:/home/bunhann/Dropbox/KIM%20CHHOY%20ODK/wellmap-odk-collect/app/src/main/res/drawable/border.xml -->

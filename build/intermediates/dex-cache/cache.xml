@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/apache-mime4j-0.6.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="12e7270b1819bae792c9a9e5e8076ebbcdaaac4b">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/apache-mime4j-0.6-bec99a054586f0085a4c9c0c45c7a0fc575b4dd8.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/maskededittext.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="91f4c31e53db556b0a24870777baf3b1eb122943">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/maskededittext-c09e11cd962519f5065a88d01c9b5d10325344f9.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/classes-b6951007ee53b5aee2d500be1d00bfed1a856674.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-4ec5be0220bbc3bbb7822e3fea5f50fa58396f7a.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-1e3e995350764daa907ddfa60b10aa0cabbd1948.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/opencsv-2.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c0ffd01065bc3fe571e1a4eb7014a03333f0663d">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/opencsv-2.3-87bffb8062a6f2f77050280e5bdccb27b7cec6c5.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/classes-06ee910622ed2c7bb51715890bef3c818a9d1d82.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/javarosa-libraries-2014-03-10.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c2064895be496429162cc5cc6fc15426c4cd225c">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/javarosa-libraries-2014-03-10-bcdebc7928d2def9a11d554615f34cf29d42e62f.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/httpclientandroidlib-4.2.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="8bdf7922c7f165bc2f4ec893eaf97e4abe47f97f">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/httpclientandroidlib-4.2.1-6b791be30d93228fd956532bffe95492741f44ab.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/commons-io-2.4-3aaea29c2a92d82744bd2d77b799d7ceaa02cd44.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/kxml2-2.3.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="ccbc77a5fd907ef863c29f3596c6f54ffa4e9442">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/kxml2-2.3.0-135585a0a767ab27673da18e44bc1e6361c8b7c6.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/libs/httpmime-4.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e0340636480aea12d38b0fb6a6ed1f06c5c79c5a">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/httpmime-4.0-9f7496d00ca516781eb613c4aa9f763f8b4752be.jar" />
+    </item>
+    <item
+        jar="/home/bunhann/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.0/752c0fe8a5b2d6704c9d9d6f06d9abdcacf4045d/joda-time-2.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="752c0fe8a5b2d6704c9d9d6f06d9abdcacf4045d">
+        <dex dex="/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/joda-time-2.0-cb259ceff1dfe95a3040ce3f2adb1adcb519afe1.jar" />
+    </item>
+
+</items>

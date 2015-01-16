@@ -1,0 +1,281 @@
+<html>
+<head>
+<title>SpinnerWidget.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,0,255); }
+.s5 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+SpinnerWidget.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">/* 
+ * Copyright (C) 2009 University of Washington 
+ *  
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except 
+ * in compliance with the License. You may obtain a copy of the License at 
+ *  
+ * http://www.apache.org/licenses/LICENSE-2.0 
+ *  
+ * Unless required by applicable law or agreed to in writing, software distributed under the License 
+ * is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express 
+ * or implied. See the License for the specific language governing permissions and limitations under 
+ * the License. 
+ */</span><span class="s1"> 
+ 
+</span><span class="s2">package </span><span class="s1">org.odk.collect.android.widgets; 
+ 
+</span><span class="s2">import </span><span class="s1">java.util.Vector; 
+ 
+</span><span class="s2">import </span><span class="s1">org.javarosa.core.model.SelectChoice; 
+</span><span class="s2">import </span><span class="s1">org.javarosa.core.model.data.IAnswerData; 
+</span><span class="s2">import </span><span class="s1">org.javarosa.core.model.data.SelectOneData; 
+</span><span class="s2">import </span><span class="s1">org.javarosa.core.model.data.helper.Selection; 
+</span><span class="s2">import </span><span class="s1">org.javarosa.form.api.FormEntryPrompt; 
+</span><span class="s2">import </span><span class="s1">org.javarosa.xpath.expr.XPathFuncExpr; 
+</span><span class="s2">import </span><span class="s1">org.odk.collect.android.R; 
+</span><span class="s2">import </span><span class="s1">org.odk.collect.android.activities.FormEntryActivity; 
+</span><span class="s2">import </span><span class="s1">org.odk.collect.android.application.Collect; 
+ 
+</span><span class="s2">import </span><span class="s1">android.content.Context; 
+</span><span class="s2">import </span><span class="s1">android.graphics.Color; 
+</span><span class="s2">import </span><span class="s1">android.graphics.Typeface; 
+</span><span class="s2">import </span><span class="s1">android.util.Log; 
+</span><span class="s2">import </span><span class="s1">android.util.TypedValue; 
+</span><span class="s2">import </span><span class="s1">android.view.LayoutInflater; 
+</span><span class="s2">import </span><span class="s1">android.view.View; 
+</span><span class="s2">import </span><span class="s1">android.view.ViewGroup; 
+</span><span class="s2">import </span><span class="s1">android.view.inputmethod.InputMethodManager; 
+</span><span class="s2">import </span><span class="s1">android.widget.AdapterView; 
+</span><span class="s2">import </span><span class="s1">android.widget.AdapterView.OnItemSelectedListener; 
+</span><span class="s2">import </span><span class="s1">android.widget.ArrayAdapter; 
+</span><span class="s2">import </span><span class="s1">android.widget.Spinner; 
+</span><span class="s2">import </span><span class="s1">android.widget.TextView; 
+ 
+</span><span class="s2">import </span><span class="s1">org.odk.collect.android.external.ExternalDataUtil; 
+ 
+</span><span class="s0">/** 
+ * SpinnerWidget handles select-one fields. Instead of a list of buttons it uses a spinner, wherein 
+ * the user clicks a button and the choices pop up in a dialogue box. The goal is to be more 
+ * compact. If images, audio, or video are specified in the select answers they are ignored. 
+ *  
+ * </span><span class="s3">@author </span><span class="s0">Jeff Beorse (jeff@beorse.net) 
+ */</span><span class="s1"> 
+</span><span class="s2">public class </span><span class="s1">SpinnerWidget </span><span class="s2">extends </span><span class="s1">QuestionWidget { 
+    Vector&lt;SelectChoice&gt; mItems; 
+    Spinner spinner; 
+    String[] choices; 
+    </span><span class="s2">private static final int </span><span class="s1">BROWN = </span><span class="s4">0xFF936931</span><span class="s1">; 
+    </span><span class="s2">private </span><span class="s1">FormEntryActivity frm ; 
+    </span><span class="s2">private </span><span class="s1">Boolean isFirstSetApdapter; 
+     
+     
+    </span><span class="s2">public </span><span class="s1">SpinnerWidget(Context context, FormEntryPrompt prompt) { 
+        </span><span class="s2">super</span><span class="s1">(context, prompt); 
+        isFirstSetApdapter=</span><span class="s2">true</span><span class="s1">; 
+        </span><span class="s0">// SurveyCTO-added support for dynamic select content (from .csv files)</span><span class="s1"> 
+        XPathFuncExpr xPathFuncExpr = ExternalDataUtil.getSearchXPathExpression(prompt.getAppearanceHint()); 
+        </span><span class="s2">if </span><span class="s1">(xPathFuncExpr != </span><span class="s2">null</span><span class="s1">) { 
+            mItems = ExternalDataUtil.populateExternalChoices(prompt, xPathFuncExpr); 
+        } </span><span class="s2">else </span><span class="s1">{ 
+            mItems = prompt.getSelectChoices(); 
+        } 
+ 
+        spinner = </span><span class="s2">new </span><span class="s1">Spinner(context); 
+        choices = </span><span class="s2">new </span><span class="s1">String[mItems.size()+</span><span class="s4">1</span><span class="s1">]; 
+        </span><span class="s2">for </span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; mItems.size(); i++) { 
+            choices[i] = prompt.getSelectChoiceText(mItems.get(i)); 
+        } 
+        choices[mItems.size()] = getContext().getString(R.string.select_one); 
+ 
+        </span><span class="s0">// The spinner requires a custom adapter. It is defined below</span><span class="s1"> 
+        SpinnerAdapter adapter = 
+            </span><span class="s2">new </span><span class="s1">SpinnerAdapter(getContext(), android.R.layout.simple_spinner_item, choices, 
+                    TypedValue.COMPLEX_UNIT_DIP, mQuestionFontsize); 
+ 
+        spinner.setAdapter(adapter); 
+        spinner.setPrompt(prompt.getQuestionText()); 
+        spinner.setEnabled(!prompt.isReadOnly()); 
+        spinner.setFocusable(!prompt.isReadOnly()); 
+ 
+        </span><span class="s0">// Fill in previous answer</span><span class="s1"> 
+        String s = </span><span class="s2">null</span><span class="s1">; 
+        </span><span class="s2">if </span><span class="s1">(prompt.getAnswerValue() != </span><span class="s2">null</span><span class="s1">) { 
+            s = ((Selection) prompt.getAnswerValue().getValue()).getValue(); 
+        } 
+ 
+        spinner.setSelection(mItems.size()); 
+        </span><span class="s2">if </span><span class="s1">(s != </span><span class="s2">null</span><span class="s1">) { 
+            </span><span class="s2">for </span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; mItems.size(); ++i) { 
+                String sMatch = mItems.get(i).getValue(); 
+                </span><span class="s2">if </span><span class="s1">(sMatch.equals(s)) { 
+                    spinner.setSelection(i); 
+                } 
+            } 
+        } 
+ 
+        spinner.setOnItemSelectedListener(</span><span class="s2">new </span><span class="s1">OnItemSelectedListener() { 
+ 
+            @SuppressWarnings(</span><span class="s5">&quot;static-access&quot;</span><span class="s1">) 
+            @Override 
+            </span><span class="s2">public void </span><span class="s1">onItemSelected(AdapterView&lt;?&gt; parent, View view, 
+                    </span><span class="s2">int </span><span class="s1">position, </span><span class="s2">long </span><span class="s1">id) { 
+             
+                </span><span class="s2">if </span><span class="s1">( position == mItems.size() ) { 
+                    Collect.getInstance().getActivityLogger().logInstanceAction(</span><span class="s2">this</span><span class="s1">, </span><span class="s5">&quot;onCheckedChanged.clearValue&quot;</span><span class="s1">,  
+                        </span><span class="s5">&quot;&quot;</span><span class="s1">, mPrompt.getIndex()); 
+                    Log.i(</span><span class="s5">&quot;sengelse&quot;</span><span class="s1">,</span><span class="s5">&quot;jolif&quot;</span><span class="s1">); 
+                    </span><span class="s2">if </span><span class="s1">(isFirstSetApdapter) 
+                        isFirstSetApdapter = </span><span class="s2">false</span><span class="s1">; 
+                } </span><span class="s2">else </span><span class="s1">{ 
+                    Log.i(</span><span class="s5">&quot;sengelse&quot;</span><span class="s1">,</span><span class="s5">&quot;jol &quot;</span><span class="s1">+isFirstSetApdapter.toString()); 
+                     
+                    </span><span class="s2">if </span><span class="s1">(isFirstSetApdapter){ 
+                        isFirstSetApdapter = </span><span class="s2">false</span><span class="s1">; 
+                    }</span><span class="s2">else</span><span class="s1">{ 
+                        frm.getInstance().refreshSpinner(); 
+                         
+                    } 
+                 
+                    Collect.getInstance().getActivityLogger().logInstanceAction(</span><span class="s2">this</span><span class="s1">, </span><span class="s5">&quot;onCheckedChanged&quot;</span><span class="s1">,  
+                            mItems.get(position).getValue(), mPrompt.getIndex()); 
+                } 
+            } 
+ 
+            @Override 
+            </span><span class="s2">public void </span><span class="s1">onNothingSelected(AdapterView&lt;?&gt; arg0) { 
+                 
+            }}); 
+         
+        addView(spinner); 
+ 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s2">public </span><span class="s1">IAnswerData getAnswer() { 
+        clearFocus(); 
+        </span><span class="s2">int </span><span class="s1">i = spinner.getSelectedItemPosition(); 
+        </span><span class="s2">if </span><span class="s1">(i == -</span><span class="s4">1 </span><span class="s1">|| i == mItems.size()) { 
+            </span><span class="s2">return null</span><span class="s1">; 
+        } </span><span class="s2">else </span><span class="s1">{ 
+            SelectChoice sc = mItems.elementAt(i); 
+            </span><span class="s2">return new </span><span class="s1">SelectOneData(</span><span class="s2">new </span><span class="s1">Selection(sc)); 
+        } 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s2">public void </span><span class="s1">clearAnswer() { 
+        </span><span class="s0">// It seems that spinners cannot return a null answer. This resets the answer</span><span class="s1"> 
+        </span><span class="s0">// to its original value, but it is not null.</span><span class="s1"> 
+        spinner.setSelection(mItems.size()); 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s2">public void </span><span class="s1">setFocus(Context context) { 
+        </span><span class="s0">// Hide the soft keyboard if it's showing.</span><span class="s1"> 
+        InputMethodManager inputManager = 
+            (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE); 
+        inputManager.hideSoftInputFromWindow(</span><span class="s2">this</span><span class="s1">.getWindowToken(), </span><span class="s4">0</span><span class="s1">); 
+ 
+    } 
+ 
+    </span><span class="s0">// Defines how to display the select answers</span><span class="s1"> 
+    </span><span class="s2">private class </span><span class="s1">SpinnerAdapter </span><span class="s2">extends </span><span class="s1">ArrayAdapter&lt;String&gt; { 
+        Context context; 
+        String[] items = </span><span class="s2">new </span><span class="s1">String[] {}; 
+        </span><span class="s2">int </span><span class="s1">textUnit; 
+        </span><span class="s2">float </span><span class="s1">textSize; 
+ 
+ 
+        </span><span class="s2">public </span><span class="s1">SpinnerAdapter(</span><span class="s2">final </span><span class="s1">Context context, </span><span class="s2">final int </span><span class="s1">textViewResourceId, 
+                </span><span class="s2">final </span><span class="s1">String[] objects, </span><span class="s2">int </span><span class="s1">textUnit, </span><span class="s2">float </span><span class="s1">textSize) { 
+            </span><span class="s2">super</span><span class="s1">(context, textViewResourceId, objects); 
+            </span><span class="s2">this</span><span class="s1">.items = objects; 
+            </span><span class="s2">this</span><span class="s1">.context = context; 
+            </span><span class="s2">this</span><span class="s1">.textUnit = textUnit; 
+            </span><span class="s2">this</span><span class="s1">.textSize = textSize; 
+        } 
+ 
+ 
+        @Override 
+        </span><span class="s0">// Defines the text view parameters for the drop down list entries</span><span class="s1"> 
+        </span><span class="s2">public </span><span class="s1">View getDropDownView(</span><span class="s2">int </span><span class="s1">position, View convertView, ViewGroup parent) { 
+ 
+            </span><span class="s2">if </span><span class="s1">(convertView == </span><span class="s2">null</span><span class="s1">) { 
+                LayoutInflater inflater = LayoutInflater.from(context); 
+                convertView = inflater.inflate(R.layout.custom_spinner_item, parent, </span><span class="s2">false</span><span class="s1">); 
+            } 
+ 
+            TextView tv = (TextView) convertView.findViewById(android.R.id.text1); 
+            tv.setTextSize(textUnit, textSize); 
+            tv.setBackgroundColor(Color.WHITE); 
+            tv.setPadding(</span><span class="s4">10</span><span class="s1">, </span><span class="s4">10</span><span class="s1">, </span><span class="s4">10</span><span class="s1">, </span><span class="s4">10</span><span class="s1">); </span><span class="s0">// Are these values OK?</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">(position == items.length-</span><span class="s4">1</span><span class="s1">) { 
+                tv.setText(parent.getContext().getString(R.string.clear_answer)); 
+                tv.setTextColor(BROWN); 
+                tv.setTypeface(</span><span class="s2">null</span><span class="s1">, Typeface.NORMAL); 
+                </span><span class="s2">if </span><span class="s1">(spinner.getSelectedItemPosition() == position) { 
+                    tv.setBackgroundColor(Color.LTGRAY); 
+                } 
+            } </span><span class="s2">else </span><span class="s1">{ 
+                tv.setText(items[position]); 
+                tv.setTextColor(Color.BLACK); 
+                tv.setTypeface(</span><span class="s2">null</span><span class="s1">, (spinner.getSelectedItemPosition() == position)  
+                                        ? Typeface.BOLD : Typeface.NORMAL); 
+            } 
+            </span><span class="s2">return </span><span class="s1">convertView; 
+        } 
+ 
+ 
+        @Override 
+        </span><span class="s2">public </span><span class="s1">View getView(</span><span class="s2">int </span><span class="s1">position, View convertView, ViewGroup parent) { 
+            </span><span class="s2">if </span><span class="s1">(convertView == </span><span class="s2">null</span><span class="s1">) { 
+                LayoutInflater inflater = LayoutInflater.from(context); 
+                convertView = inflater.inflate(android.R.layout.simple_spinner_item, parent, </span><span class="s2">false</span><span class="s1">); 
+            } 
+ 
+            TextView tv = (TextView) convertView.findViewById(android.R.id.text1); 
+            tv.setText(items[position]); 
+            tv.setTextSize(textUnit, textSize); 
+            tv.setTextColor(Color.BLACK); 
+            tv.setTypeface(</span><span class="s2">null</span><span class="s1">, Typeface.BOLD); 
+            </span><span class="s2">if </span><span class="s1">(position == items.length-</span><span class="s4">1</span><span class="s1">) { 
+                tv.setTextColor(BROWN); 
+                tv.setTypeface(</span><span class="s2">null</span><span class="s1">, Typeface.NORMAL); 
+            } 
+            </span><span class="s2">return </span><span class="s1">convertView; 
+        } 
+ 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s2">public void </span><span class="s1">setOnLongClickListener(OnLongClickListener l) { 
+        spinner.setOnLongClickListener(l); 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s2">public void </span><span class="s1">cancelLongPress() { 
+        </span><span class="s2">super</span><span class="s1">.cancelLongPress(); 
+        spinner.cancelLongPress(); 
+    } 
+ 
+} 
+</span></pre>
+</body>
+</html>

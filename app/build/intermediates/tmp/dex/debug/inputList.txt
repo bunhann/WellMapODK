@@ -1,0 +1,14 @@
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/classes/debug
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-4ec5be0220bbc3bbb7822e3fea5f50fa58396f7a.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/maskededittext-c09e11cd962519f5065a88d01c9b5d10325344f9.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/opencsv-2.3-87bffb8062a6f2f77050280e5bdccb27b7cec6c5.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/httpmime-4.0-9f7496d00ca516781eb613c4aa9f763f8b4752be.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/kxml2-2.3.0-135585a0a767ab27673da18e44bc1e6361c8b7c6.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-1e3e995350764daa907ddfa60b10aa0cabbd1948.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/commons-io-2.4-3aaea29c2a92d82744bd2d77b799d7ceaa02cd44.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/apache-mime4j-0.6-bec99a054586f0085a4c9c0c45c7a0fc575b4dd8.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/javarosa-libraries-2014-03-10-bcdebc7928d2def9a11d554615f34cf29d42e62f.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/classes-b6951007ee53b5aee2d500be1d00bfed1a856674.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/httpclientandroidlib-4.2.1-6b791be30d93228fd956532bffe95492741f44ab.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/joda-time-2.0-cb259ceff1dfe95a3040ce3f2adb1adcb519afe1.jar
+/home/bunhann/Dropbox/KIM CHHOY ODK/wellmap-odk-collect/app/build/intermediates/pre-dexed/debug/classes-06ee910622ed2c7bb51715890bef3c818a9d1d82.jar

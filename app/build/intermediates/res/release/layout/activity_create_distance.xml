@@ -1,0 +1,145 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical"
+    tools:context="org.urccambodia.cpr.ui.hcService.CreateDistanceActivity">
+
+    <TextView
+        android:text="Hello"
+        android:id="@+id/lblHCInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--title province district-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:paddingLeft="15dp"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:text="Province"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:paddingLeft="15dp"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:text="District"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/sp_Province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:layout_weight="0.5"
+            style="@style/Spinner">
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/sp_District"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:layout_weight="0.5"
+            style="@style/Spinner">
+        </Spinner>
+    </LinearLayout>
+
+    <!--title commune village-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:paddingLeft="15dp"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:text="Commmune"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:paddingLeft="15dp"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:text="Village"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <Spinner
+            android:id="@+id/sp_Commune"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+
+            android:layout_weight="0.5"
+            style="@style/Spinner">
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/sp_Village"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+
+            android:layout_weight="0.5"
+            style="@style/Spinner">
+        </Spinner>
+    </LinearLayout>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal|vertical"
+        android:padding="5dp"
+        android:id="@+id/lv_ColumnName">
+
+    </ListView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@drawable/bootstrap_divider"
+        android:dividerHeight="2.0sp"
+        style="@style/ListItem"
+        android:id="@+id/lv_Data">
+    </ListView>
+
+
+</LinearLayout>
+<!-- From: file:/home/bunhann/Dropbox/KIM%20CHHOY%20ODK/wellmap-odk-collect/app/src/main/res/layout/activity_create_distance.xml -->
