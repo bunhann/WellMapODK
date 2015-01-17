@@ -127,10 +127,10 @@ public class StringWidget extends QuestionWidget {
             } else mAnswer.setVisibility(VISIBLE);
         }
         if (fieldName.equalsIgnoreCase("otherfunded1")) {
-            PropertiesUtils.set_q32Ref(mAnswer);
-            if (PropertiesUtils.get_q22Test() == 0) {
-                mAnswer.setVisibility(INVISIBLE);
-            } else mAnswer.setVisibility(VISIBLE);
+            if (PropertiesUtils.getiAnswer28()==1){
+                mAnswer.setVisibility(VISIBLE);
+            } else mAnswer.setVisibility(INVISIBLE);
+            PropertiesUtils.setEdQues28Other(mAnswer);
         }
         if (fieldName.equalsIgnoreCase("platform")) {
             PropertiesUtils.set_q33Ref(mAnswer);
@@ -172,7 +172,12 @@ public class StringWidget extends QuestionWidget {
             }  else mAnswer.setVisibility(INVISIBLE);*/
             if (PropertiesUtils.getiAns332()==0){
                 mAnswer.setVisibility(INVISIBLE);
-            } else mAnswer.setVisibility(VISIBLE);
+            } else{
+                if (PropertiesUtils.getiAns333()==0){
+                    mAnswer.setVisibility(INVISIBLE);
+                } else mAnswer.setVisibility(VISIBLE);
+            }
+
             PropertiesUtils.setEdQues333Other(mAnswer);
         }
 
@@ -227,17 +232,11 @@ public class StringWidget extends QuestionWidget {
 
         if (fieldName.equalsIgnoreCase("e_coli")){
             PropertiesUtils.set_q26Ref(mAnswer);
-//            if (PropertiesUtils.get_q16Test() == 0){
-//                mAnswer.setVisibility(VISIBLE);
-//            }else mAnswer.setVisibility(INVISIBLE);
             mAnswer.setVisibility(INVISIBLE);
         }
 
         if (fieldName.equalsIgnoreCase("total_coliform")){
             PropertiesUtils.set_q27Ref(mAnswer);
-//            if (PropertiesUtils.get_q17Test() == 0){
-//                mAnswer.setVisibility(VISIBLE);
-//            }else mAnswer.setVisibility(INVISIBLE);
             mAnswer.setVisibility(INVISIBLE);
         }
 
@@ -263,9 +262,6 @@ public class StringWidget extends QuestionWidget {
 
         if (fieldName.equalsIgnoreCase("well_id")){
             PropertiesUtils.set_q28Ref(mAnswer);
-//            if (PropertiesUtils.get_q17Test() == 0){
-//                mAnswer.setVisibility(VISIBLE);
-//            }else mAnswer.setVisibility(INVISIBLE);
             mAnswer.setVisibility(INVISIBLE);
         }
 
@@ -277,11 +273,10 @@ public class StringWidget extends QuestionWidget {
             else mAnswer.setVisibility(INVISIBLE);
         }
         if (fieldName.equalsIgnoreCase("diameter_other")){
-            mAnswer.setVisibility(INVISIBLE);
-            PropertiesUtils.setDiameterOther(mAnswer);
-            if (PropertiesUtils.getQuestionDiameterOther().getVisibility()==VISIBLE)
+            if (PropertiesUtils.getiAnswser213()==1){
                 mAnswer.setVisibility(VISIBLE);
-            else mAnswer.setVisibility(INVISIBLE);
+            }else mAnswer.setVisibility(INVISIBLE);
+            PropertiesUtils.setEdQuestion213(mAnswer);
         }
 
         if (fieldName.equalsIgnoreCase("otherdamaged")){
@@ -292,10 +287,10 @@ public class StringWidget extends QuestionWidget {
         }
 
         if (fieldName.equalsIgnoreCase("date_well1")){
-            PropertiesUtils.set_ed_Answer2_1_1(mAnswer);
-            if (PropertiesUtils.getiAnswer2_8()==7){
+            if (PropertiesUtils.getiAnswer28Date()==0){
                 mAnswer.setVisibility(INVISIBLE);
-            }
+            } else mAnswer.setVisibility(VISIBLE);
+            PropertiesUtils.setEdQues2111(mAnswer);
         }
 
         if (fieldName.equalsIgnoreCase("otherlocation")){
@@ -384,7 +379,6 @@ public class StringWidget extends QuestionWidget {
                                 mAnswer.setEnabled(false);
                                 mAnswer.setTextColor(getResources().getColor(R.color.text_red));
                             }
-
                             break;
                     }
             }
@@ -412,7 +406,7 @@ public class StringWidget extends QuestionWidget {
                                 Log.i("seng", name);
                                 mAnswer.setText(name);
 
-                            } else if (appearance.equals("string-date")){
+                            } else if (appearance.equals("string-date")) {
                                 mAnswer.setKeyListener(new DateKeyListener() {
                                     @Override
                                     protected char[] getAcceptedChars() {
@@ -426,18 +420,23 @@ public class StringWidget extends QuestionWidget {
                                 mAnswer.setKeyListener(null);
                                 mAnswer.setEnabled(false);
                                 mAnswer.setTextColor(getResources().getColor(R.color.text_red));
+                            } else if (appearance.equals("phone")) {
+                                mAnswer.setKeyListener(new DigitsKeyListener() {
+                                    @Override
+                                    protected char[] getAcceptedChars() {
+                                        char[] accepted = {
+                                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' '
+                                        };
+                                        return accepted;
+                                    }
+                                });
+                                break;
                             }
-                            break;
                     }
+
+                    addView(mAnswer);
             }
-
-
-
-            // end appearance username
-
-            addView(mAnswer);
         }
-
 
     }
 

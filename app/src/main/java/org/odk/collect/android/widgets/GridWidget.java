@@ -320,12 +320,14 @@ public class GridWidget extends QuestionWidget {
                 }
                 if (fieldName.equalsIgnoreCase("diameter_of_well") ){
                     if (position==10){
-                        PropertiesUtils.getDiameterOther().setVisibility(VISIBLE);
-                        PropertiesUtils.getQuestionDiameterOther().setVisibility(VISIBLE);
+                        PropertiesUtils.setiAnswser213(1);
+                        PropertiesUtils.getTvQuestion213().setVisibility(VISIBLE);
+                        PropertiesUtils.getEdQuestion213().setVisibility(VISIBLE);
                     }
                     else {
-                        PropertiesUtils.getDiameterOther().setVisibility(INVISIBLE);
-                        PropertiesUtils.getQuestionDiameterOther().setVisibility(INVISIBLE);
+                        PropertiesUtils.setiAnswser213(0);
+                        PropertiesUtils.getTvQuestion213().setVisibility(INVISIBLE);
+                        PropertiesUtils.getEdQuestion213().setVisibility(INVISIBLE);
                     }
                 }
                 selected[position] = true;

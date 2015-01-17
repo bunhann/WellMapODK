@@ -333,7 +333,17 @@ public class GridMultiWidget extends QuestionWidget {
                             PropertiesUtils.getEdQuestion312Other().setVisibility(INVISIBLE);
                             PropertiesUtils.setiAnswer312(0);
                         }
+                    }else{
+                        PropertiesUtils.getTvQuestion312Other().setVisibility(INVISIBLE);
+                        PropertiesUtils.getEdQuestion312Other().setVisibility(INVISIBLE);
+                        if (selected[18] == true){
+                            PropertiesUtils.getTvQuestion312Other().setVisibility(VISIBLE);
+                            PropertiesUtils.getEdQuestion312Other().setVisibility(VISIBLE);
+                            PropertiesUtils.setiAnswer312(1);
+                        }
                     }
+
+
                 }
             }
         });

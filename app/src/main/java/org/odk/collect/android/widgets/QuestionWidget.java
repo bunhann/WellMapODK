@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.PropertyPermission;
 
 import org.javarosa.core.model.data.IAnswerData;
 import org.javarosa.form.api.FormEntryPrompt;
@@ -221,19 +222,18 @@ public abstract class QuestionWidget extends LinearLayout {
         }
 
         if (fieldName.equalsIgnoreCase("otherfunded")) {
-            mQuestionText.setVisibility(INVISIBLE);
+            if (PropertiesUtils.get_q2Test() == 0) {
+                mQuestionText.setVisibility(INVISIBLE);
+            } else mQuestionText.setVisibility(VISIBLE);
             PropertiesUtils.setTv_QuestionText1(mQuestionText);
         }
         if (fieldName.equalsIgnoreCase("otherfunded1")) {
-            if (PropertiesUtils.getiAnswer2_8()==5){
+            if (PropertiesUtils.getiAnswer28()==1){
                 mQuestionText.setVisibility(VISIBLE);
-            } mQuestionText.setVisibility(INVISIBLE);
-            PropertiesUtils.setTv_QuestionText20(mQuestionText);
+            } else mQuestionText.setVisibility(INVISIBLE);
+            PropertiesUtils.setTvQues28Other(mQuestionText);
         }
-       /* if (fieldName.equalsIgnoreCase("platform")) {
-            mQuestionText.setVisibility(INVISIBLE);
-            PropertiesUtils.setTv_QuestionText21(mQuestionText);
-        }*/
+
         if (fieldName.equalsIgnoreCase("gps_location")) {
             mQuestionText.setVisibility(INVISIBLE);
         }
@@ -260,14 +260,10 @@ public abstract class QuestionWidget extends LinearLayout {
             }
         }
         if (fieldName.equalsIgnoreCase("diameter_other")){
-            PropertiesUtils.setQuestionDiameterOther(mQuestionText);
-            try{
-                if(PropertiesUtils.getDiameterOther().getVisibility()==VISIBLE)
-                    PropertiesUtils.getQuestionDiameterOther().setVisibility(VISIBLE);
-                else PropertiesUtils.getQuestionDiameterOther().setVisibility(INVISIBLE);
-            } catch (Exception e){
-                mQuestionText.setVisibility(INVISIBLE);
-            }
+            if (PropertiesUtils.getiAnswser213()==1){
+                mQuestionText.setVisibility(VISIBLE);
+            } else  mQuestionText.setVisibility(INVISIBLE);
+            PropertiesUtils.setTvQuestion213(mQuestionText);
         }
         if (fieldName.equalsIgnoreCase("otherdamaged")){
             if (PropertiesUtils.getiAnswer31()!=0&& PropertiesUtils.getiAnswer312()==1){
@@ -333,8 +329,14 @@ public abstract class QuestionWidget extends LinearLayout {
                 mQuestionText.setVisibility(VISIBLE);
         }  else mQuestionText.setVisibility(INVISIBLE);*/
             if (PropertiesUtils.getiAns332()==0){
-                mQuestionText.setVisibility(INVISIBLE);
-            } else mQuestionText.setVisibility(VISIBLE);
+
+                    mQuestionText.setVisibility(INVISIBLE);
+
+            } else{
+                if (PropertiesUtils.getiAns333()==0){
+                    mQuestionText.setVisibility(INVISIBLE);
+                } else mQuestionText.setVisibility(VISIBLE);
+            }
             PropertiesUtils.setTvQues333Other(mQuestionText);
         }
 
@@ -448,10 +450,11 @@ public abstract class QuestionWidget extends LinearLayout {
             PropertiesUtils.setTvQuestion4119(mQuestionText);
         }
        if (fieldName.equalsIgnoreCase("date_well1")){
-           PropertiesUtils.set_tv_Question2_1_1(mQuestionText);
-           if (PropertiesUtils.getiAnswer2_8()==7){
+
+           if (PropertiesUtils.getiAnswer28Date()==0){
                mQuestionText.setVisibility(INVISIBLE);
            } else mQuestionText.setVisibility(VISIBLE);
+           PropertiesUtils.setTvQues2111(mQuestionText);
         }
         if (fieldName.equalsIgnoreCase("yearflooded")){
             /*PropertiesUtils.set_q18Ref(mAnswer);
@@ -481,9 +484,13 @@ public abstract class QuestionWidget extends LinearLayout {
             PropertiesUtils.setTvQues332(mQuestionText);
         }
         if (fieldName.equalsIgnoreCase("taste1")){
-            if (PropertiesUtils.getiAns33()==0 && PropertiesUtils.getiAns332()==0){
+            if (PropertiesUtils.getiAns33()==0){
                 mQuestionText.setVisibility(INVISIBLE);
-            } else mQuestionText.setVisibility(VISIBLE);
+            } else{
+                if (PropertiesUtils.getiAns332()==0){
+                    mQuestionText.setVisibility(INVISIBLE);
+                } else  mQuestionText.setVisibility(VISIBLE);
+            }
             PropertiesUtils.setTvQues333(mQuestionText);
 
         }

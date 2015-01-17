@@ -105,9 +105,13 @@ public class SelectMultiWidget extends QuestionWidget {
             PropertiesUtils.setLayoutQuestion321(this);
         }
         if (fieldName.equalsIgnoreCase("taste1")){
-            if (PropertiesUtils.getiAns33()==1 && PropertiesUtils.getiAns332()==1){
-                setVisibility(VISIBLE);
-            } else setVisibility(INVISIBLE);
+            if (PropertiesUtils.getiAns33()==0){
+                setVisibility(INVISIBLE);
+            } else{
+                if (PropertiesUtils.getiAns332()==0){
+                    setVisibility(INVISIBLE);
+                } else  setVisibility(VISIBLE);
+            }
             PropertiesUtils.setLayoutQues333(this);
         }
         Vector<Selection> ve = new Vector<Selection>();
@@ -178,29 +182,57 @@ public class SelectMultiWidget extends QuestionWidget {
 	                ((CheckBox) c).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 	                    @Override
 	                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                              try{
-                                    if (fieldName.equalsIgnoreCase("typedirt")&& mItems.get((Integer)buttonView.getTag()).getValue().equalsIgnoreCase("other")){
-                                        if (isChecked){
-                                            PropertiesUtils.getTvQuestion321Other().setVisibility(VISIBLE);
-                                            PropertiesUtils.getEdQuestion321Other().setVisibility(VISIBLE);
-                                            PropertiesUtils.setiAnswer321(1);
+                                    if (fieldName.equalsIgnoreCase("typedirt")){
+
+                                        if (mItems.get((Integer)buttonView.getTag()).getValue().equalsIgnoreCase("other")){
+                                            if (isChecked){
+                                                PropertiesUtils.getTvQuestion321Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.getEdQuestion321Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.setiAnswer321(1);
+                                                PropertiesUtils.setIsOther321Checked(true);
+
+                                            } else{
+                                                PropertiesUtils.getTvQuestion321Other().setVisibility(INVISIBLE);
+                                                PropertiesUtils.getEdQuestion321Other().setVisibility(INVISIBLE);
+                                                PropertiesUtils.setiAnswer321(0);
+                                                PropertiesUtils.setIsOther321Checked(false);
+                                            }
                                         } else{
                                             PropertiesUtils.getTvQuestion321Other().setVisibility(INVISIBLE);
                                             PropertiesUtils.getEdQuestion321Other().setVisibility(INVISIBLE);
-                                            PropertiesUtils.setiAnswer321(0);
+                                            if (PropertiesUtils.isIsOther321Checked()==true){
+                                                PropertiesUtils.getTvQuestion321Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.getEdQuestion321Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.setiAnswer321(1);
+                                            }
                                         }
-                                    }
-                                    if (fieldName.equalsIgnoreCase("taste1")&& mItems.get((Integer)buttonView.getTag()).getValue().equalsIgnoreCase("other_taste")){
 
-                                        if (isChecked){
-                                            PropertiesUtils.setiAns333(1);
-                                            PropertiesUtils.getTvQues333Other().setVisibility(VISIBLE);
-                                            PropertiesUtils.getEdQues333Other().setVisibility(VISIBLE);
+                                    }
+                                    if (fieldName.equalsIgnoreCase("taste1")){
+                                        if (mItems.get((Integer)buttonView.getTag()).getValue().equalsIgnoreCase("other_taste")){
+                                            if (isChecked){
+                                                PropertiesUtils.setiAns333(1);
+                                                PropertiesUtils.getTvQues333Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.getEdQues333Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.setIsOther333Checked(true);
+                                            } else{
+                                                PropertiesUtils.setiAns333(0);
+                                                PropertiesUtils.getTvQues333Other().setVisibility(INVISIBLE);
+                                                PropertiesUtils.getEdQues333Other().setVisibility(INVISIBLE);
+                                                PropertiesUtils.setIsOther333Checked(false);
+                                            }
                                         } else{
-                                            PropertiesUtils.setiAns333(0);
                                             PropertiesUtils.getTvQues333Other().setVisibility(INVISIBLE);
                                             PropertiesUtils.getEdQues333Other().setVisibility(INVISIBLE);
+                                            if(PropertiesUtils.isIsOther333Checked()==true){
+                                                PropertiesUtils.getTvQues333Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.getEdQues333Other().setVisibility(VISIBLE);
+                                                PropertiesUtils.setiAns333(1);
+                                            }
                                         }
+
 
                                  }
                                 } catch (Exception e){

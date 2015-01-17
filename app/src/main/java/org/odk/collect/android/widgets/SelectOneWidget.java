@@ -327,20 +327,26 @@ public class SelectOneWidget extends QuestionWidget implements
         }
         if (fieldName.equalsIgnoreCase("fundedbyrehabilitated")) {
             if (buttons.get(5).isChecked()) {
-                PropertiesUtils.set_q22Test(1);
-                PropertiesUtils.get_q32Ref().setVisibility(View.VISIBLE);
-                PropertiesUtils.getTv_QuestionText20().setVisibility(VISIBLE);
+                PropertiesUtils.getTvQues28Other().setVisibility(VISIBLE);
+                PropertiesUtils.getEdQues28Other().setVisibility(VISIBLE);
+                PropertiesUtils.setiAnswer28(1);
+                PropertiesUtils.setiAnswer28Date(1);
+                PropertiesUtils.getTvQues2111().setVisibility(VISIBLE);
+                PropertiesUtils.getEdQues2111().setVisibility(VISIBLE);
             } else if (buttons.get(7).isChecked()) {
-                PropertiesUtils.get_tv_Question2_1_1().setVisibility(INVISIBLE);
-                PropertiesUtils.get_ed_Answer2_1_1().setVisibility(INVISIBLE);
-                PropertiesUtils.setiAnswer2_8(7);
-
+                PropertiesUtils.getTvQues28Other().setVisibility(INVISIBLE);
+                PropertiesUtils.getEdQues28Other().setVisibility(INVISIBLE);
+                PropertiesUtils.setiAnswer28(0);
+                PropertiesUtils.setiAnswer28Date(0);
+                PropertiesUtils.getTvQues2111().setVisibility(INVISIBLE);
+                PropertiesUtils.getEdQues2111().setVisibility(INVISIBLE);
             } else {
-                PropertiesUtils.set_q22Test(0);
-                PropertiesUtils.get_q32Ref().setVisibility(View.INVISIBLE);
-                PropertiesUtils.getTv_QuestionText20().setVisibility(INVISIBLE);
-                PropertiesUtils.get_tv_Question2_1_1().setVisibility(VISIBLE);
-                PropertiesUtils.get_ed_Answer2_1_1().setVisibility(VISIBLE);
+                PropertiesUtils.getTvQues28Other().setVisibility(INVISIBLE);
+                PropertiesUtils.getEdQues28Other().setVisibility(INVISIBLE);
+                PropertiesUtils.setiAnswer28(0);
+                PropertiesUtils.setiAnswer28Date(1);
+                PropertiesUtils.getTvQues2111().setVisibility(VISIBLE);
+                PropertiesUtils.getEdQues2111().setVisibility(VISIBLE);
             }
         }
 
@@ -402,11 +408,13 @@ public class SelectOneWidget extends QuestionWidget implements
 
         if (fieldName.equalsIgnoreCase("diameter_of_well")) {
             if (buttons.get(10).isChecked()) {
-                PropertiesUtils.set_q4Test(1);
-                PropertiesUtils.get_q14Ref().setVisibility(VISIBLE);
+                PropertiesUtils.setiAnswser213(1);
+                PropertiesUtils.getTvQuestion213().setVisibility(VISIBLE);
+                PropertiesUtils.getEdQuestion213().setVisibility(VISIBLE);
             } else {
-                PropertiesUtils.set_q4Test(0);
-                PropertiesUtils.get_q14Ref().setVisibility(View.INVISIBLE);
+                PropertiesUtils.setiAnswser213(0);
+                PropertiesUtils.getTvQuestion213().setVisibility(INVISIBLE);
+                PropertiesUtils.getEdQuestion213().setVisibility(INVISIBLE);
             }
         }
 
@@ -567,12 +575,14 @@ public class SelectOneWidget extends QuestionWidget implements
                 PropertiesUtils.getLayoutQues333().setVisibility(VISIBLE);
                 PropertiesUtils.getTvQues333Other().setVisibility(VISIBLE);
                 PropertiesUtils.getEdQues333Other().setVisibility(VISIBLE);
+                PropertiesUtils.setIs332Accepted(false);
             } else {
                 PropertiesUtils.setiAns332(0);
                 PropertiesUtils.getTvQues333().setVisibility(INVISIBLE);
                 PropertiesUtils.getLayoutQues333().setVisibility(INVISIBLE);
                 PropertiesUtils.getTvQues333Other().setVisibility(INVISIBLE);
                 PropertiesUtils.getEdQues333Other().setVisibility(INVISIBLE);
+                PropertiesUtils.setIs332Accepted(true);
             }
         }
 
@@ -598,6 +608,12 @@ public class SelectOneWidget extends QuestionWidget implements
                 PropertiesUtils.getLayoutQues333().setVisibility(VISIBLE);
                 PropertiesUtils.getTvQues333Other().setVisibility(VISIBLE);
                 PropertiesUtils.getEdQues333Other().setVisibility(VISIBLE);
+                if (PropertiesUtils.isIs332Accepted()==true){
+                    PropertiesUtils.getTvQues333().setVisibility(INVISIBLE);
+                    PropertiesUtils.getLayoutQues333().setVisibility(INVISIBLE);
+                    PropertiesUtils.getTvQues333Other().setVisibility(INVISIBLE);
+                    PropertiesUtils.getEdQues333Other().setVisibility(INVISIBLE);
+                }
             }
         }
 

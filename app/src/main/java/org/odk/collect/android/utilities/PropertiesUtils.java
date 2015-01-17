@@ -16,6 +16,7 @@ import org.odk.collect.android.model.District;
 import org.odk.collect.android.model.Province;
 import org.odk.collect.android.model.Village;
 import org.odk.collect.android.views.ExpandedHeightGridView;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
@@ -109,12 +110,12 @@ public class PropertiesUtils {
     //3.2 Question on Clean and NOt Clean
     private static LinearLayout _typedirtLayout;
     private static TextView _tv_Question_Typedirt;
-    private static int iAnswerDirt = 0;
+    private static int iAnswerDirt = 1;
 
     private static EditText _ed_DirtyOther;
     private static TextView _tv_DirtyOther;
     private static boolean _viewOther = false;
-    private static int iAnswerDirtOther = 0;
+    private static int iAnswerDirtOther = 1;
 
 
     //3.3.2 Question on water taste
@@ -126,7 +127,7 @@ public class PropertiesUtils {
     //2.8 Question
     private static TextView _tv_Question2_1_1;
     private static EditText _ed_Answer2_1_1;
-    private static int iAnswer2_8 = 0;
+    private static int iAnswer2_8 = 10;
 
     //String Location
     private static String locationGPS;
@@ -1939,8 +1940,8 @@ public class PropertiesUtils {
     public static LinearLayout LayoutQuestion3_3_2;
     public static TextView tvQuestion3_3_3;
     public static LinearLayout LayoutQuestion3_3_3;
-    public static int iAnswer3_3 = 0;
-    public static int iAnswer3_3_2 = 0;
+    public static int iAnswer3_3 = 1;
+    public static int iAnswer3_3_2 = 1;
 
     public synchronized static TextView getTvQuestion3_3_2() {
         return tvQuestion3_3_2;
@@ -2022,7 +2023,7 @@ public class PropertiesUtils {
     //Other Location Well 2.4
     private static TextView tvQuestionOtherLocation;
     private static EditText edAnswerOtherLocation;
-    private static int iAnswerOtherLocation = 0; //1 Visible, 0 Invisible
+    private static int iAnswerOtherLocation = 1; //1 Visible, 0 Invisible
 
     public synchronized static TextView getTvQuestionOtherLocation() {
         return tvQuestionOtherLocation;
@@ -2065,7 +2066,7 @@ public class PropertiesUtils {
     private static EditText edQuestion312Other;
     private static int iAnswer312 = 1; //1 Visible, 0 Invisible
 
-    private static int iAnswer31 = 1; //1 Visible, 0 Invisible
+    private static int iAnswer31 =1; //1 Visible, 0 Invisible
 
     public static int getiAnswer31() {
         return iAnswer31;
@@ -2158,12 +2159,21 @@ public class PropertiesUtils {
     //3.2 Question
     private static int iAnswer32 = 1;
     private static int iAnswer321 = 1;
+    private static boolean isOther321Checked = false;
 
     private static TextView tvQuestion321Other;
     private static EditText edQuestion321Other;
 
     private static LinearLayout layoutQuestion321;
     private static TextView tvQuestion321;
+
+    public static boolean isIsOther321Checked() {
+        return isOther321Checked;
+    }
+
+    public static void setIsOther321Checked(boolean isOther321Checked) {
+        PropertiesUtils.isOther321Checked = isOther321Checked;
+    }
 
     public static int getiAnswer32() {
         return iAnswer32;
@@ -2387,7 +2397,7 @@ public class PropertiesUtils {
         PropertiesUtils.edQuestion4119 = edQuestion4119;
     }
 
-    private static int iAns33 = 1;
+    private static int iAns33 = 0;
 
     private static TextView tvQues332;
     private static TextView tvQues333;
@@ -2396,8 +2406,17 @@ public class PropertiesUtils {
     private static LinearLayout layoutQues332;
     private static LinearLayout layoutQues333;
     private static EditText edQues333Other;
-    private static int iAns332 = 1;
-    private static int iAns333 = 1;
+    private static int iAns332 = 0;
+    private static int iAns333 = 0;
+    private static boolean isOther333Checked = false;
+
+    public static boolean isIsOther333Checked() {
+        return isOther333Checked;
+    }
+
+    public static void setIsOther333Checked(boolean is333OtherChecked) {
+        PropertiesUtils.isOther333Checked = is333OtherChecked;
+    }
 
     public static int getiAns33() {
         return iAns33;
@@ -2474,7 +2493,7 @@ public class PropertiesUtils {
 
     //Section 1
 
-    private static int iAnswer1RecordingOther = 1;
+    private static int iAnswer1RecordingOther = 0;
     private static TextView tvQuestionRecordingOther;
     private static EditText edQuestionRecordingOther;
 
@@ -2500,6 +2519,99 @@ public class PropertiesUtils {
 
     public static void setEdQuestionRecordingOther(EditText edQuestionRecordingOther) {
         PropertiesUtils.edQuestionRecordingOther = edQuestionRecordingOther;
+    }
+
+    private static boolean is332Accepted = false;
+
+    public static boolean isIs332Accepted() {
+        return is332Accepted;
+    }
+
+    public static void setIs332Accepted(boolean is332Accepted) {
+        PropertiesUtils.is332Accepted = is332Accepted;
+    }
+
+    private static int iAnswer28 = 1;
+    private static int iAnswer28Date =1 ;
+    private static TextView tvQues28Other;
+    private static EditText edQues28Other;
+    private static TextView tvQues2111;
+    private static EditText edQues2111;
+
+    public static int getiAnswer28() {
+        return iAnswer28;
+    }
+
+    public static void setiAnswer28(int iAnswer28) {
+        PropertiesUtils.iAnswer28 = iAnswer28;
+    }
+
+    public static int getiAnswer28Date() {
+        return iAnswer28Date;
+    }
+
+    public static void setiAnswer28Date(int iAnswer28Date) {
+        PropertiesUtils.iAnswer28Date = iAnswer28Date;
+    }
+
+    public static TextView getTvQues28Other() {
+        return tvQues28Other;
+    }
+
+    public static void setTvQues28Other(TextView tvQues28Other) {
+        PropertiesUtils.tvQues28Other = tvQues28Other;
+    }
+
+    public static EditText getEdQues28Other() {
+        return edQues28Other;
+    }
+
+    public static void setEdQues28Other(EditText edQues28Other) {
+        PropertiesUtils.edQues28Other = edQues28Other;
+    }
+
+    public static TextView getTvQues2111() {
+        return tvQues2111;
+    }
+
+    public static void setTvQues2111(TextView tvQues2111) {
+        PropertiesUtils.tvQues2111 = tvQues2111;
+    }
+
+    public static EditText getEdQues2111() {
+        return edQues2111;
+    }
+
+    public static void setEdQues2111(EditText edQues2111) {
+        PropertiesUtils.edQues2111 = edQues2111;
+    }
+
+    private static int iAnswser213 =1;
+    private static TextView tvQuestion213;
+    private static EditText edQuestion213;
+
+    public static int getiAnswser213() {
+        return iAnswser213;
+    }
+
+    public static void setiAnswser213(int iAnswser213) {
+        PropertiesUtils.iAnswser213 = iAnswser213;
+    }
+
+    public static TextView getTvQuestion213() {
+        return tvQuestion213;
+    }
+
+    public static void setTvQuestion213(TextView tvQuestion213) {
+        PropertiesUtils.tvQuestion213 = tvQuestion213;
+    }
+
+    public static EditText getEdQuestion213() {
+        return edQuestion213;
+    }
+
+    public static void setEdQuestion213(EditText edQuestion213) {
+        PropertiesUtils.edQuestion213 = edQuestion213;
     }
 }
 

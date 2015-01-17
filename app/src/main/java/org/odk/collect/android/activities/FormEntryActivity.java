@@ -275,6 +275,13 @@ public class FormEntryActivity extends Activity implements AnimationListener,
         PropertiesUtils.setiAnswer31(1);
         PropertiesUtils.setiAnswer311(1);
         PropertiesUtils.setiAnswer312(1);
+        PropertiesUtils.setiAnswer28(1);
+        PropertiesUtils.setiAnswer28Date(1);
+        PropertiesUtils.setiAnswser213(1);
+
+        PropertiesUtils.setIsOther321Checked(false);
+        PropertiesUtils.setIsOther333Checked(false);
+        PropertiesUtils.setIs332Accepted(false);
 
 
 		mNextButton = (ImageButton) findViewById(R.id.form_forward_button);
